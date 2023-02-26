@@ -16,8 +16,18 @@ const update = (id, newObject) => {
   return request.then((response) => response.data);
 };
 
+// eslint-disable-next-line 
 export default {
   getAll,
   create,
   update,
 };
+
+
+
+/*REMARKS: 
+ iNSTALLATION : npm install axios
+npm install json-server --save-dev
+
+THEN: json-server --port 3001 --watch notes.db
+//this will create json for notes which can be viewed at "localhost:3001/notes" */

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Sum = ({course}) => {
     let total = course.parts.reduce((prevValue, curValue) => 
@@ -42,4 +42,4 @@ const Course = ({course}) => {
     )
 }
 
-export default Course
+export default Course;

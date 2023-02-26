@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useMemo } from "react";
 import Person from "./components/Person";
 import Filter from "./components/Filter";
@@ -153,4 +154,5 @@ const App = () => {
     </div>
   );
 };
+
 export default App;

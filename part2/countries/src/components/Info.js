@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-//pls install : npm i axios dotenv --save
-
 const Info = ({ country }) => {
   const api_key = process.env.REACT_APP_API_KEY;
   const [weather, setWeather] = useState({});
@@ -12,14 +10,18 @@ const Info = ({ country }) => {
     console.log("get weather api");
     axios
       .get(
-        `  http://api.weatherstack.com/current?access_key=${api_key}&query=${country.capital}`
+        ` https://api.openweathermap.org/data/2.5/weather?units=metric&q=${country}&appid=${api_key}`
       )
       .then((response) => {
-        setWeather(response.data);
+        const temp = response.main.temp;
+        const humidity = response.main.humidity;
+        const wind = response.wind.speed;
+        const sky = response.weather[0].description;
+        const icon = response.weather[0].icon;
+        setWeather({ temp, humidity, wind, sky, icon });
         setLoading(false);
       });
-      // eslint-disable-next-line
-  }, [country.capital]);
+  }, [country, api_key]);
 
   return (
     <div>
@@ -41,7 +43,7 @@ const Info = ({ country }) => {
         "Loading"
       ) : (
         <div>
-          <p>Weather in {weather.location.name}</p>
+          <p>Weather in {weather.locastion.name}</p>
           <p>Temperature: {weather.current.temperature}</p>
           <img src={weather.current.weather_icons[0]} alt="weather icon"/>
           {console.log(weather.current.weather_icons[0])}

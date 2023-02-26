@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from "react";
 import Note from "./components/Note";
-import noteService from "./services/notes";
+import noteService from "./services/services";
 import "./index.css";
 import Notification from "./components/Notification";
 
