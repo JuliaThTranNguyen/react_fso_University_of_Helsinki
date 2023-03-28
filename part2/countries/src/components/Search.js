@@ -1,5 +1,12 @@
-function TooMany() {
-  return <p>Too many matches, specify another filter.</p>;
-}
+import React from "react";
 
-export default TooMany;
+const Search = ({ search, onSearchChange }) => {
+  return (
+    <div>
+      <div>Find countries</div>
+      <input value={search} onChange={onSearchChange}></input>
+    </div>
+  );
+};
+
+export default Search;
